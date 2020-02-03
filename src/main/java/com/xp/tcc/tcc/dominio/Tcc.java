@@ -3,12 +3,19 @@ package com.xp.tcc.tcc.dominio;
 import com.xp.tcc.tcc.dominio.Aluno;
 import com.xp.tcc.tcc.dominio.Professor;
 
-public class Tcc {
+import javax.persistence.*;
 
+@Entity
+public class Tcc {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long idTcc;
+    @ManyToOne
     private Professor orientador;
+    @ManyToOne
     private Aluno orientado;
     private String tema;
-    private Long idTcc;
+
 
     public Aluno getOrientado() {
         return orientado;
