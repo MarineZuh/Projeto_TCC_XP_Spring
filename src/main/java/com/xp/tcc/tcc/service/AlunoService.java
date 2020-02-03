@@ -23,4 +23,15 @@ public class AlunoService {
         return alunoRepository.findAll();
     }
 
+    @Transactional
+    public Aluno salva(Aluno aluno) {
+        return alunoRepository.save(aluno);
+
+    }
+
+    @Transactional(readOnly = true)
+    public Aluno buscaPorNome(String nome ) {
+        return alunoRepository.buscarPorNome(nome );
+    }
+
 }

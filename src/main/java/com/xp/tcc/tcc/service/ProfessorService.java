@@ -25,4 +25,5 @@ public class ProfessorService {
     public List<Professor> todos() {
         return professorRepository.findAll();
     }
+
 }
