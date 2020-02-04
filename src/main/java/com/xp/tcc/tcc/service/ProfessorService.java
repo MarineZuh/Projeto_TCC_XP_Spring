@@ -1,9 +1,7 @@
 package com.xp.tcc.tcc.service;
 
-import com.xp.tcc.tcc.controlador.ProfessorController;
 import com.xp.tcc.tcc.dominio.Aluno;
 import com.xp.tcc.tcc.dominio.Professor;
-import com.xp.tcc.tcc.repositorio.AlunoRepository;
 import com.xp.tcc.tcc.repositorio.ProfessorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,6 +22,17 @@ public class ProfessorService {
     @Transactional(readOnly = true)
     public List<Professor> todos() {
         return professorRepository.findAll();
+    }
+
+    @Transactional
+    public Professor salva(Professor professor) {
+        return professorRepository.save(professor);
+
+    }
+
+    @Transactional(readOnly = true)
+    public Professor buscaPorNome(String nome ) {
+        return professorRepository.buscarPorNome(nome );
     }
 
 }

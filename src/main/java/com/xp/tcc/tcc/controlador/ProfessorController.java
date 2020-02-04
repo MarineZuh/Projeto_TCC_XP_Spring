@@ -1,12 +1,12 @@
 package com.xp.tcc.tcc.controlador;
 
+import com.xp.tcc.tcc.dominio.Aluno;
 import com.xp.tcc.tcc.dominio.Professor;
 import com.xp.tcc.tcc.service.ProfessorService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,5 +26,21 @@ public class ProfessorController {
         List<Professor> professores = professorService.todos();
 
         return ResponseEntity.ok(professores);
+    }
+
+    @PostMapping
+    public ResponseEntity<Professor> salva(@RequestBody Professor professor) {
+        Professor professorSalvo = professorService.salva(professor);
+        return ResponseEntity.status(HttpStatus.CREATED).body(professorSalvo);
+    }
+
+    @GetMapping("/busca")
+    public ResponseEntity<Professor> buscarPorNome(@RequestParam String nome) {
+        Professor professorAchado = professorService.buscaPorNome(nome);
+        if(professorAchado != null) {
+            return ResponseEntity.ok(professorAchado);
+        }
+        return ResponseEntity.noContent().build();
+
     }
 }
