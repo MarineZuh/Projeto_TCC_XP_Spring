@@ -13,12 +13,12 @@ public class Tcc {
     @ManyToOne
     private Professor orientador;
     @ManyToOne
-    private Aluno orientado;
+    private Aluno orientando;
     private String tema;
 
 
-    public Aluno getOrientado() {
-        return orientado;
+    public Aluno getOrientando() {
+        return orientando;
     }
 
     public Long getIdTcc() {
@@ -37,8 +37,8 @@ public class Tcc {
         this.idTcc = idTcc;
     }
 
-    public void setOrientado(Aluno orientado) {
-        this.orientado = orientado;
+    public void setOrientando(Aluno orientando) {
+        this.orientando = orientando;
     }
 
     public void setOrientador(Professor orientador) {

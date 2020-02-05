@@ -1,6 +1,7 @@
 package com.xp.tcc.tcc.service;
 
 import com.xp.tcc.tcc.dominio.Aluno;
+import com.xp.tcc.tcc.dominio.Professor;
 import com.xp.tcc.tcc.dominio.Tcc;
 import com.xp.tcc.tcc.repositorio.AlunoRepository;
 import com.xp.tcc.tcc.repositorio.TccRepository;
@@ -14,7 +15,6 @@ import java.util.List;
 public class TccService {
 
     private final TccRepository tccRepository;
-
     @Autowired
     public TccService(TccRepository tccRepository) {
         this.tccRepository = tccRepository;
@@ -25,4 +25,9 @@ public class TccService {
         return tccRepository.findAll();
     }
 
+    @Transactional
+    public Tcc salva(Tcc tcc) {
+        return tccRepository.save(tcc);
+
+    }
 }
