@@ -1,4 +1,3 @@
-use projeto;
 
 create table tcc(
 	tema varchar(50),

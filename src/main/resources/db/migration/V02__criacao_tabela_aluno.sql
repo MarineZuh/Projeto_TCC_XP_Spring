@@ -1,5 +1,3 @@
-use projeto;
-
 create table aluno (
 	nome varchar (40),
     id int auto_increment,

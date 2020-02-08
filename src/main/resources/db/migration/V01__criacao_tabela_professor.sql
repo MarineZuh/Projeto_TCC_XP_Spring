@@ -1,4 +1,3 @@
-use projeto;
 
 create table professor (
 	nome varchar (40),

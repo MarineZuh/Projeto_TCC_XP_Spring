@@ -9,11 +9,16 @@ import javax.persistence.*;
 public class Tcc {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idTcc;
+    private Long id;
+    
     @ManyToOne
+    @JoinColumn(name = "orientador")
     private Professor orientador;
+    
     @ManyToOne
+    @JoinColumn(name = "orientando")
     private Aluno orientando;
+    
     private String tema;
 
 
@@ -21,8 +26,8 @@ public class Tcc {
         return orientando;
     }
 
-    public Long getIdTcc() {
-        return idTcc;
+    public Long getId() {
+        return id;
     }
 
     public Professor getOrientador() {
@@ -33,8 +38,8 @@ public class Tcc {
         return tema;
     }
 
-    public void setIdTcc(Long idTcc) {
-        this.idTcc = idTcc;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public void setOrientando(Aluno orientando) {
