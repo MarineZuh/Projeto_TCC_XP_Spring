@@ -34,10 +34,10 @@ public class AlunoController {
     }
 
     @GetMapping("/busca")
-    public ResponseEntity<Aluno> buscarPorNome(@RequestParam String nome) {
-        Aluno alunoAchado = alunoService.buscaPorNome(nome);
-        if(alunoAchado != null) {
-            return ResponseEntity.ok(alunoAchado);
+    public ResponseEntity<List<Aluno>> buscarPorNome(@RequestParam String nome) {
+        List<Aluno> alunosAchados = alunoService.buscaPorNome(nome);
+        if(alunosAchados != null) {
+            return ResponseEntity.ok(alunosAchados);
         }
         return ResponseEntity.noContent().build();
 

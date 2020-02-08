@@ -31,7 +31,7 @@ public class ProfessorService {
     }
 
     @Transactional(readOnly = true)
-    public Professor buscaPorNome(String nome ) {
+    public List<Professor> buscaPorNome(String nome ) {
         return professorRepository.buscarPorNome(nome );
     }
 

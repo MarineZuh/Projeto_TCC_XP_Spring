@@ -29,7 +29,7 @@ public class AlunoService {
     }
 
     @Transactional(readOnly = true)
-    public Aluno buscaPorNome(String nome ) {
+    public List<Aluno> buscaPorNome(String nome ) {
         return alunoRepository.buscarPorNome(nome );
     }
 

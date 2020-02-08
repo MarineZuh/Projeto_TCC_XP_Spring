@@ -35,10 +35,10 @@ public class ProfessorController {
     }
 
     @GetMapping("/busca")
-    public ResponseEntity<Professor> buscarPorNome(@RequestParam String nome) {
-        Professor professorAchado = professorService.buscaPorNome(nome);
-        if(professorAchado != null) {
-            return ResponseEntity.ok(professorAchado);
+    public ResponseEntity<List<Professor>> buscarPorNome(@RequestParam String nome) {
+        List<Professor> professoresAchados = professorService.buscaPorNome(nome);
+        if(professoresAchados != null) {
+            return ResponseEntity.ok(professoresAchados);
         }
         return ResponseEntity.noContent().build();
 
